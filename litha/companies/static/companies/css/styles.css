@@ -1,0 +1,31 @@
+.container {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.field-wrapper {
+    margin: 5px 0;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+.djng-field-errors {
+    margin: 0;
+}
+
+.invalid {
+    color: red;
+}
+
+.valid {
+    display: none;
+}
+
+img.logo {
+    display: block;
+    margin-top: 5px;
+    margin-left: 105px;
+}

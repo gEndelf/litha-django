@@ -1,0 +1,75 @@
+<form class="company-form" name="{{ form.form_name }}" novalidate>
+    <div class="field-wrapper">
+        {{ form.name.label_tag }}{{ form.name }}
+        {{ form.name.errors }}
+        <ul class="djng-field-errors" ng-show="company_form.name.$dirty" ng-cloak>
+            <li ng-show="company_form.name.$error.minlength" class="invalid">Ensure this value has at least 2 characters</li>
+            <li ng-show="company_form.name.$error.pattern" class="invalid">Enter a valid value</li>
+            <li ng-show="company_form.name.$error.server" ng-bind="errors.name" class="invalid"></li>
+        </ul>
+    </div>
+    <div class="field-wrapper">
+        {{ form.description.label_tag }}{{ form.description }}
+        {{ form.description.errors }}
+        <ul class="djng-field-errors" ng-show="company_form.description.$dirty" ng-cloak>
+            <li ng-show="company_form.description.$error.server" ng-bind="errors.description" class="invalid"></li>
+        </ul>
+    </div>
+    <div class="field-wrapper">
+        {{ form.mobile.label_tag }}{{ form.mobile }}
+        {{ form.mobile.errors }}
+        <ul class="djng-field-errors" ng-show="company_form.mobile.$dirty" ng-cloak>
+            <li ng-show="company_form.mobile.$error.pattern" class="invalid">Enter a valid value</li>
+            <li ng-show="company_form.mobile.$error.server" ng-bind="errors.mobile" class="invalid"></li>
+        </ul>
+    </div>
+    <div class="field-wrapper">
+        {{ form.phone1.label_tag }}{{ form.phone1 }}
+        {{ form.phone1.errors }}
+        <ul class="djng-field-errors" ng-show="company_form.phone1.$dirty" ng-cloak>
+            <li ng-show="company_form.phone1.$error.pattern" class="invalid">Enter a valid value</li>
+            <li ng-show="company_form.phone1.$error.server" ng-bind="errors.phone1" class="invalid"></li>
+        </ul>
+    </div>
+    <div class="field-wrapper">
+        {{ form.phone2.label_tag }}{{ form.phone2 }}
+        {{ form.phone2.errors }}
+        <ul class="djng-field-errors" ng-show="company_form.phone2.$dirty" ng-cloak>
+            <li ng-show="company_form.phone2.$error.pattern" class="invalid">Enter a valid value</li>
+            <li ng-show="company_form.phone2.$error.server" ng-bind="errors.phone2" class="invalid"></li>
+        </ul>
+    </div>
+    <div class="field-wrapper">
+        {{ form.website.label_tag }}
+        <input id="id_website" maxlength="200" name="website" ng-model="company.website" type="url" server-error>
+        <ul class="djng-field-errors" ng-show="company_form.website.$dirty" ng-cloak>
+            <li ng-show="company_form.website.$error.url" class="invalid">Enter a valid url</li>
+            <li ng-show="company_form.website.$error.server" ng-bind="errors.website" class="invalid"></li>
+        </ul>
+    </div>
+    <div class="field-wrapper">
+        {{ form.address.label_tag }}{{ form.address }}
+        {{ form.address.errors }}
+        <ul class="djng-field-errors" ng-show="company_form.address.$dirty" ng-cloak>
+            <li ng-show="company_form.address.$error.server" ng-bind="errors.address" class="invalid"></li>
+        </ul>
+    </div>
+    <div class="field-wrapper">
+        {{ form.status.label_tag }}{{ form.status }}
+        {{ form.status.errors }}
+        <ul class="djng-field-errors" ng-show="company_form.status.$dirty" ng-cloak>
+            <li ng-show="company_form.status.$error.server" ng-bind="errors.status" class="invalid"></li>
+        </ul>
+    </div>
+
+    <div class="field-wrapper">
+        <label for="id_logo">Logo</label>
+        <input id="id_logo" name="logo" type="file" ng-model="company.logo" nv-file-select uploader="uploader" server-error>
+        <ul class="djng-field-errors" ng-show="company_form.logo.$dirty" ng-cloak>
+            <li ng-show="company_form.logo.$error.server" ng-bind="errors.logo" class="invalid"></li>
+        </ul>
+        <img class="logo" ng-src="{% verbatim %}{{ company.logo }}{% endverbatim %}">
+    </div>
+
+    <button type="button" data-ng-click="submitForm()" ng-disabled="company_form.$invalid || uploader.isUploading">Submit</button>
+</form>
